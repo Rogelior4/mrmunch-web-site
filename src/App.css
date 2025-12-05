@@ -1,0 +1,84 @@
+.navbar {
+  display:flex ;
+  justify-content: space-between; /* Mantiene logo a la izq y botones a la der */
+  align-items: center;
+  
+  background-color: #4d04a0;
+  
+  
+  width: 100%;              
+  box-sizing: border-box;  
+  padding: 15px 50px;       
+  
+
+  box-shadow: 0 4px 10px rgba(45, 114, 28, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* logo*/
+.logo-nav {
+  height: 80px; 
+  width: auto; 
+  border-radius: 50%;
+  border: 2px solid #4CAF50; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+
+    cursor: pointer;       
+    transition: transform 0.2s; 
+}
+
+.logo-container:active {
+    transform: scale(0.95);
+}
+.titulo-nav {
+  font-size: 2.5rem;        
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  letter-spacing: 1px;    
+}
+
+.contenido-pagina {
+  padding-top: 130px;       
+  padding-left: 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-opciones {
+    display: flex;
+    gap: 15px; 
+}
+
+/* botones del menú */
+.menu-opciones button {
+    background-color: solid white; 
+    border: 2px solid transparent;
+    color: white;                  
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.4s ease;    
+}
+
+/* efectos para cuando el mouse pase por encima */
+.menu-opciones button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #4CAF50;        
+    color: #4CAF50;
+}
