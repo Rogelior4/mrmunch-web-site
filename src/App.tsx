@@ -13,7 +13,7 @@ function App() {
         <div className="logo-container" onClick={() => setVista('inicio')}>
 
           <img src={personaje} alt="Logo Mr. Monch" className="logo-nav" />
-          <h1 className="titulo-nav">Grinch Mode</h1>
+          <h1 className="titulo-nav">Mr.MonchiesMonch</h1>
         </div>
 
  <div className="menu-opciones">
