@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import personaje from './assets/personaje.png'
 
+// limpiar todo codigo html y remplazarlo por material UI
 function App() {
   const [vista, setVista] = useState('inicio');
 
