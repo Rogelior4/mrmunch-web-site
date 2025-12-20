@@ -1,81 +1,49 @@
-import { useState } from 'react'
-import './App.css'
-import personaje from './assets/personaje.png'
+import { useState } from "react";
+import { Box, Container, Fade } from "@mui/material";
 
-// limpiar todo codigo html y remplazarlo por material UI
+import { Navbar } from "./ui/Navbar/Navbar";
+import { HomeView } from "./views/HomeView";
+import { HistoryView } from "./views/HistoryView";
+import { MusicView } from "./views/MusicView";
+import { ContactView } from "./views/ContactView";
+
 function App() {
-  const [vista, setVista] = useState('inicio');
+  const [vista, setVista] = useState("inicio");
+
+  const renderCurrentView = () => {
+    switch (vista) {
+      case "Historia":
+        return <HistoryView />;
+      case "Música":
+        return <MusicView />;
+      case "Ponte monchoso":
+        return <ContactView />;
+      default:
+        return <HomeView />;
+    }
+  };
 
   return (
-    <div className="app-container">
-      
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Navbar currentView={vista} onNavigate={setVista} />
 
-      <nav className="navbar">
-        <div className="logo-container" onClick={() => setVista('inicio')}>
-
-          <img src={personaje} alt="Logo Mr. Monch" className="logo-nav" />
-          <h1 className="titulo-nav">Mr.MonchiesMonch</h1>
-        </div>
-
- <div className="menu-opciones">
-
-            <button onClick={() => setVista('Historia')}>Historia</button>
-
-            <button onClick={() => setVista('Música')}>Música</button>
-
-            <button onClick={() => setVista('Ponte monchoso')}>Ponte Monchoso</button>
-
-        </div>
-
-      </nav>
-
-      <main className="contenido-pagina">
-
-        {vista === 'inicio' && (
-          <div className="seccion inicio fade-in">
-            <h2>¡Bienvenido al mundo de Mr. Monch!</h2>
-            <p>Selecciona una opción del menú para comenzar la experiencia.</p>
-          </div>
-        )}
-
-        {vista === 'Historia' && (
-          <div className="seccion historia fade-in">
-            <h2>Cómics canónicos de la historia de Mr. Monch</h2>
-            <div className="info-box">
-              <p>Aquí verás el universo, estrellas y planetas.</p>
-              <p>Un "lobby" general de todo lo que Mr. Monch hace.</p>
-            </div>
-          </div>
-        )}
-
-        {vista === 'Música' && (
-          <div className="seccion musica fade-in">
-            <h2>Videoclips y Streaming</h2>
-            <p>Disfruta de las animaciones y música original de Mr. Monch.</p>
-            <div className="links-container">
-              <button className="btn-streaming">Spotify</button>
-              <button className="btn-streaming">YouTube</button>
-              <button className="btn-streaming">Apple Music</button>
-            </div>
-          </div>
-        )}
-
-        {vista === 'Ponte monchoso' && (
-          <div className="seccion contacto fade-in">
-            <h2>Pedidos y Eventos</h2>
-            <p>Haz tu orden individual (a partir de 4 personas) o contrata para eventos.</p>
-            
-            <div className="contacto-info">
-              <p><strong>WhatsApp:</strong> +52 555-0000</p>
-              <p><strong>Teléfono directo:</strong> +52 555-1234</p>
-            </div>
-          </div>
-        )}
-
-      </main>
-
-    </div>
-  )
+      <Container
+        sx={{
+          flex: 1,
+          py: 6,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Fade in={true} key={vista} timeout={600}>
+          <Box width="100%" display="flex" justifyContent="center">
+            {renderCurrentView()}
+          </Box>
+        </Fade>
+      </Container>
+    </Box>
+  );
 }
 
-export default App
+export default App;
